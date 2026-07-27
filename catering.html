@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jamaican Catering Winnipeg | Miss Christine's Kitchen | Weddings, Corporate & Private Events</title>
+<meta name="description" content="Authentic Jamaican catering for weddings, corporate events & private parties in Winnipeg. Jerk chicken, oxtail, curry goat & seafood packages. Min. 10 guests. Call (204) 698-1546.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #1A0F07;
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --cream: #F5EFE0;
+  --spice: #8B4513;
+  --charcoal: #2A1F14;
+  --warm-white: #FDFAF4;
+  --border: rgba(201,168,76,0.22);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--warm-white);color:var(--charcoal);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;padding:0 5%;background:rgba(38,20,8,0.98);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;height:72px;border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--gold);letter-spacing:.02em;background:none;border:none;cursor:pointer;}
+.nav-logo span{color:var(--cream);font-style:italic;font-weight:400;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
+.nav-links a,.nav-link-btn{font-family:'Lato',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:.85;transition:opacity .2s,color .2s;background:none;border:none;cursor:pointer;padding:0;}
+.nav-links a:hover,.nav-link-btn:hover{opacity:1;color:var(--gold);}
+.nav-cta-btn{background:var(--gold)!important;color:var(--forest)!important;padding:.5rem 1.2rem;border-radius:2px;opacity:1!important;font-weight:700!important;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;transition:background .2s;}
+.nav-cta-btn:hover{background:var(--gold-light)!important;}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:44px;height:44px;cursor:pointer;background:none;border:none;}
+.hamburger .bar{width:24px;height:2px;background:var(--gold);display:block;border-radius:2px;transition:transform .35s,opacity .2s;position:absolute;}
+.hamburger .bar:nth-child(1){transform:translateY(-7px);}
+.hamburger .bar:nth-child(3){transform:translateY(7px);width:16px;}
+
+/* HERO */
+.catering-hero{min-height:80vh;background:linear-gradient(160deg,#0d0804 0%,#1A0F07 50%,#231408 100%);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 5% 80px;}
+.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.07);pointer-events:none;}
+.ring-1{width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.ring-2{width:900px;height:900px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold);opacity:.6;}
+.catering-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;color:var(--cream);line-height:1.08;margin-bottom:1rem;}
+.catering-hero h1 em{color:var(--gold);font-style:italic;display:block;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:rgba(247,242,232,.7);font-style:italic;margin-bottom:2.5rem;line-height:1.6;max-width:620px;}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--forest);font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.2rem;text-decoration:none;border-radius:2px;border:none;cursor:pointer;transition:background .2s,transform .15s;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--cream);font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.2rem;text-decoration:none;border-radius:2px;border:1px solid rgba(247,242,232,.3);cursor:pointer;transition:border-color .2s,color .2s;}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+.hero-badges{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(201,168,76,.15);}
+.hero-badge{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.badge-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);}
+.badge-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,242,232,.5);}
+
+/* ANNOUNCE */
+.announce-bar{background:var(--spice);padding:.65rem 5%;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.08em;color:var(--cream);}
+.announce-bar span{color:var(--gold-light);}
+
+/* SECTION */
+section{padding:5rem 5%;}
+.section-label{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';width:40px;height:1px;background:var(--gold);opacity:.5;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;color:var(--forest);margin-bottom:1rem;}
+.section-title em{color:var(--spice);font-style:italic;}
+
+/* POLICY GRID */
+.policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;max-width:1200px;margin-left:auto;margin-right:auto;}
+.policy-card{background:white;border:1px solid #ede8de;border-radius:4px;padding:1.8rem 1.5rem;transition:box-shadow .2s,transform .2s;}
+.policy-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-2px);}
+.policy-icon{font-size:2rem;margin-bottom:.9rem;display:block;}
+.policy-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--forest);margin-bottom:.5rem;}
+.policy-desc{font-size:.88rem;color:#666;line-height:1.6;}
+
+/* PACKAGES */
+#packages{background:var(--cream);}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;max-width:1300px;margin-left:auto;margin-right:auto;}
+.package-card{background:white;border:1px solid #e8e2d8;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;position:relative;}
+.package-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.1);transform:translateY(-3px);}
+.package-card.featured{border:2px solid var(--gold);box-shadow:0 8px 32px rgba(201,168,76,.15);}
+.package-badge{position:absolute;top:1rem;right:1rem;background:var(--gold);color:var(--forest);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px;}
+.package-head{background:var(--forest);padding:2rem 1.8rem 1.5rem;}
+.package-label{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:.4rem;}
+.package-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:.75rem;}
+.package-price{display:flex;align-items:baseline;gap:4px;}
+.price-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--gold);line-height:1;}
+.price-unit{font-size:.78rem;color:rgba(247,242,232,.55);font-weight:400;}
+.package-body{padding:1.5rem 1.8rem;flex:1;display:flex;flex-direction:column;gap:1.2rem;}
+.pkg-section-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--spice);margin-bottom:.5rem;}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.pkg-list li{font-size:.88rem;color:var(--charcoal);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4;}
+.pkg-list li::before{content:'✓';color:var(--gold);font-weight:700;font-size:.8rem;flex-shrink:0;margin-top:1px;}
+.pkg-note{font-size:.78rem;color:#888;font-style:italic;line-height:1.5;padding-top:.5rem;border-top:1px solid #eee;}
+.pkg-cta{margin:0 1.8rem 1.8rem;}
+.pkg-cta a,.pkg-cta button{display:block;width:100%;text-align:center;background:var(--forest);color:var(--gold);font-family:'Lato',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem;border-radius:3px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
+.pkg-cta a:hover,.pkg-cta button:hover{background:var(--spice);}
+.package-card.featured .pkg-cta a,.package-card.featured .pkg-cta button{background:var(--gold);color:var(--forest);}
+.package-card.featured .pkg-cta a:hover,.package-card.featured .pkg-cta button:hover{background:var(--gold-light);}
+
+/* ALSO — tray option banner inside basic package */
+.tray-banner{background:var(--cream);border-radius:3px;padding:.6rem 1rem;font-size:.8rem;color:var(--forest);font-weight:700;border-left:3px solid var(--gold);margin-bottom:.5rem;}
+
+/* ADDONS */
+.addons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2.5rem;max-width:1200px;margin-left:auto;margin-right:auto;}
+.addon-card{background:white;border:1px solid #ede8de;border-radius:4px;padding:1.2rem;display:flex;flex-direction:column;gap:.3rem;transition:box-shadow .2s;}
+.addon-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);}
+.addon-emoji{font-size:1.6rem;margin-bottom:.3rem;}
+.addon-name{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:700;color:var(--forest);}
+.addon-serving{font-size:.72rem;color:#888;text-transform:uppercase;letter-spacing:.06em;}
+.addon-price{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--gold);margin-top:.3rem;}
+
+/* MEMORIAL */
+.memorial-section{background:var(--forest);padding:5rem 5%;text-align:center;}
+.memorial-section .section-title{color:var(--cream);}
+.memorial-section .section-title em{color:var(--gold);}
+.memorial-desc{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(247,242,232,.75);max-width:640px;margin:1rem auto 2.5rem;line-height:1.7;}
+.memorial-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+/* SERVICE OPTIONS */
+.service-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--charcoal);}
+.service-option{padding:2.5rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.08);}
+.service-option:last-child{border-right:none;}
+.service-icon{font-size:2rem;margin-bottom:.75rem;display:block;}
+.service-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream);font-weight:700;margin-bottom:.4rem;}
+.service-detail{font-size:.82rem;color:var(--gold);font-weight:700;}
+
+/* BOOKING CTA */
+.booking-section{background:var(--warm-white);padding:5rem 5%;text-align:center;}
+.booking-card{background:var(--forest);border-radius:6px;padding:3.5rem 2rem;max-width:700px;margin:0 auto;border:1px solid rgba(201,168,76,.15);}
+.booking-card h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--cream);margin-bottom:.75rem;}
+.booking-card p{color:rgba(247,242,232,.65);font-size:.95rem;line-height:1.7;margin-bottom:2rem;}
+.booking-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{background:#0a0704;padding:4rem 5% 2rem;color:rgba(247,242,232,.5);}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.footer-logo-text{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);margin-bottom:.6rem;display:block;}
+.footer-logo-text span{color:var(--cream);font-style:italic;}
+.footer-tagline{font-size:.85rem;line-height:1.6;margin-bottom:1rem;}
+.footer-social{display:flex;gap:.75rem;}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,.07);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;text-decoration:none;transition:background .2s;color:var(--cream);border:none;cursor:pointer;}
+.social-btn:hover{background:var(--gold);color:var(--forest);}
+.footer-col h4{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.footer-col ul a,.footer-link-btn{color:rgba(247,242,232,.5);text-decoration:none;font-size:.88rem;transition:color .2s;background:none;border:none;cursor:pointer;text-align:left;padding:0;font-family:'Lato',sans-serif;}
+.footer-col ul a:hover,.footer-link-btn:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--forest);color:var(--cream);padding:.75rem 1.2rem;border-radius:4px;border-left:3px solid var(--gold);font-size:.88rem;font-weight:600;z-index:9999;transform:translateY(100px);opacity:0;transition:transform .3s,opacity .3s;max-width:280px;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+@media(max-width:1024px){.packages-grid{grid-template-columns:1fr 1fr;}.policy-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.packages-grid{grid-template-columns:1fr;}.policy-grid{grid-template-columns:1fr;}.service-strip{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;gap:2rem;}.hero-badges{gap:2rem;}.nav-links{display:none;}.hamburger{display:flex;}}
+@media(max-width:500px){.addons-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <button class="nav-logo" onclick="window.location='index.html'">Miss Christine's <span>Kitchen</span></button>
+  <ul class="nav-links">
+    <li><a href="index.html#about">My Story</a></li>
+    <li><a href="index.html#menu-gallery">Dishes</a></li>
+    <li><a href="index.html#order">Order Online</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#contact">Hours</a></li>
+    <li><button class="nav-cta-btn" onclick="window.location='index.html#order'">Order Online</button></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="catering-hero">
+  <div class="hero-ring ring-1"></div>
+  <div class="hero-ring ring-2"></div>
+  <div class="hero-eyebrow">Catering · Winnipeg, MB</div>
+  <h1>A Jamaican Feast<em>Wherever You Celebrate.</em></h1>
+  <p class="hero-sub">From intimate dinners to grand celebrations, Miss Christine's Kitchen brings authentic Jamaican flavour to every event — weddings, corporate gatherings, birthdays, private parties and repasts.</p>
+  <div class="hero-actions">
+    <a href="tel:2046981546" class="btn-primary">📞 Call to Book — (204) 698-1546</a>
+    <button class="btn-secondary" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">View Packages →</button>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge"><span class="badge-num">10+</span><span class="badge-label">Min. Guests</span></div>
+    <div class="hero-badge"><span class="badge-num">3</span><span class="badge-label">Package Tiers</span></div>
+    <div class="hero-badge"><span class="badge-num">50%</span><span class="badge-label">Deposit to Book</span></div>
+    <div class="hero-badge"><span class="badge-num">4.9★</span><span class="badge-label">Google Rating</span></div>
+  </div>
+</section>
+
+<!-- ANNOUNCE -->
+<div class="announce-bar">📍 <span>878 Ellice Ave, Winnipeg</span> · Catering & meal prep available · <span>Book at least 1 week in advance · (204) 698-1546</span></div>
+
+<!-- HOW IT WORKS -->
+<section id="policy">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Simple, transparent<em>catering policy.</em></h2>
+    </div>
+    <div class="policy-grid">
+      <div class="policy-card reveal"><span class="policy-icon">👥</span><div class="policy-title">Minimum 10 Guests</div><p class="policy-desc">Every package starts at 10 guests — perfect for intimate gatherings or grand celebrations of any size.</p></div>
+      <div class="policy-card reveal"><span class="policy-icon">📅</span><div class="policy-title">Book 1 Week Ahead</div><p class="policy-desc">Place orders at least one week in advance. Final guest count is due 3 days before your event.</p></div>
+      <div class="policy-card reveal"><span class="policy-icon">💳</span><div class="policy-title">50% Deposit</div><p class="policy-desc">A non-refundable 50% deposit secures your date and locks in your menu. Balance due on delivery.</p></div>
+      <div class="policy-card reveal"><span class="policy-icon">🧾</span><div class="policy-title">Service & Tax</div><p class="policy-desc">18% service charge applies for groups of 8+. PST & GST applied separately. All prices in CAD.</p></div>
+      <div class="policy-card reveal"><span class="policy-icon">🚗</span><div class="policy-title">Delivery Available</div><p class="policy-desc">Pickup is always free. Delivery starts at $50 — final cost depends on distance and order size.</p></div>
+      <div class="policy-card reveal"><span class="policy-icon">🌱</span><div class="policy-title">Dietary Friendly</div><p class="policy-desc">Gluten-free & vegan options available on request. Please mention allergies or restrictions when booking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div style="max-width:1300px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:.5rem;">
+      <div class="section-label" style="justify-content:center;">Catering Packages</div>
+      <h2 class="section-title" style="text-align:center;">Three ways<em>to feast.</em></h2>
+      <p style="color:#777;font-size:.9rem;margin-top:.5rem;">Minimum 10 guests on every package. All prices in CAD — taxes (PST & GST) not included.</p>
+    </div>
+
+    <div class="packages-grid">
+
+      <!-- BASIC -->
+      <div class="package-card reveal">
+        <div class="package-head">
+          <div class="package-label">Basic Package</div>
+          <div class="package-name">Pick One Protein</div>
+          <div class="package-price"><span class="price-num">$100</span><span class="price-unit">/ tray of 10 (protein only)</span></div>
+          <div style="margin-top:.5rem;font-size:.78rem;color:rgba(247,242,232,.55);">or <strong style="color:var(--gold);">$18.99</strong> per person — meal with 3 sides</div>
+        </div>
+        <div class="package-body">
+          <div>
+            <div class="pkg-section-title">Pick 1 Protein</div>
+            <ul class="pkg-list">
+              <li>Jerk Chicken</li>
+              <li>Fry Chicken</li>
+              <li>Curry Chicken</li>
+              <li>Brown Stew Chicken</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pkg-section-title">Pick 3 Sides</div>
+            <ul class="pkg-list">
+              <li>Rice & Peas</li>
+              <li>White Rice</li>
+              <li>Pasta Salad</li>
+              <li>Fry Plantain</li>
+              <li>Fresh Salad</li>
+              <li>Baked Potato</li>
+              <li>Rasta Pasta</li>
+              <li>Steam Cabbage</li>
+              <li>Creamy Mac & Cheese</li>
+              <li>Callaloo</li>
+            </ul>
+          </div>
+          <p class="pkg-note">All chicken meals are the same price. Medium tray feeds 10 guests.</p>
+        </div>
+        <div class="pkg-cta"><a href="tel:2046981546">📞 Book This Package</a></div>
+      </div>
+
+      <!-- ISLAND TREAT — FEATURED -->
+      <div class="package-card featured reveal">
+        <div class="package-badge">⭐ Most Loved</div>
+        <div class="package-head">
+          <div class="package-label">Island Treat</div>
+          <div class="package-name">The Premium Trio</div>
+          <div class="package-price"><span class="price-num">$69.99</span><span class="price-unit">/ per person</span></div>
+          <div style="margin-top:.5rem;font-size:.78rem;color:rgba(247,242,232,.55);">Pre-fixed meal · Minimum 10 guests</div>
+        </div>
+        <div class="package-body">
+          <div>
+            <div class="pkg-section-title">3 Premium Proteins (included)</div>
+            <ul class="pkg-list">
+              <li>Jerk Chicken</li>
+              <li>Slow Braised Oxtail</li>
+              <li>Curry Goat</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pkg-section-title">Pick 4 Sides</div>
+            <ul class="pkg-list">
+              <li>Rice & Peas</li>
+              <li>White Rice</li>
+              <li>Steam Cabbage</li>
+              <li>Baked Potatoes</li>
+              <li>Rasta Pasta</li>
+              <li>Roasted Vegetables</li>
+              <li>Island Brussels Sprouts</li>
+              <li>Fry Plantains</li>
+              <li>Pasta Salad</li>
+              <li>MCK Jerk Mac & Cheese</li>
+              <li>Callaloo</li>
+            </ul>
+          </div>
+          <p class="pkg-note">The full Miss Christine's experience — jerk, oxtail & curry goat together.</p>
+        </div>
+        <div class="pkg-cta"><button onclick="showToast('Call (204) 698-1546 to book the Island Treat package!')">⭐ Book Island Treat</button></div>
+      </div>
+
+      <!-- SEAFOOD FEAST -->
+      <div class="package-card reveal">
+        <div class="package-head">
+          <div class="package-label">Island Seafood Feast</div>
+          <div class="package-name">Catch of the Caribbean</div>
+          <div class="package-price"><span class="price-num">$74.99</span><span class="price-unit">/ per person</span></div>
+          <div style="margin-top:.5rem;font-size:.78rem;color:rgba(247,242,232,.55);">Minimum 10 guests</div>
+        </div>
+        <div class="package-body">
+          <div>
+            <div class="pkg-section-title">Pick 3 Signature Proteins</div>
+            <ul class="pkg-list">
+              <li>Escovitch Snapper</li>
+              <li>Brown Stew Snapper</li>
+              <li>Jerk Snapper</li>
+              <li>Honey Jerk Salmon</li>
+              <li>Steam Snapper</li>
+              <li>Curry Snapper</li>
+              <li>Curry Shrimp</li>
+              <li>Escovitch Shrimp</li>
+              <li>Garlic Butter Shrimp</li>
+              <li>Jerk Shrimp</li>
+              <li>Nigerian Suya Shrimp</li>
+              <li>Deep Fry Breaded Shrimp</li>
+            </ul>
+          </div>
+          <div>
+            <div class="pkg-section-title">Pick 4 Sides</div>
+            <ul class="pkg-list">
+              <li>Reggae Pasta</li>
+              <li>Baked Potato</li>
+              <li>Rice & Peas</li>
+              <li>Fettuccine Alfredo</li>
+              <li>Mac & Cheese</li>
+              <li>Caesar Salad</li>
+              <li>Garden Salad</li>
+              <li>Callaloo</li>
+              <li>Fry Plantain</li>
+              <li>Steam Cabbage</li>
+              <li>Roasted Vegetables</li>
+              <li>Island Brussels Sprouts</li>
+            </ul>
+          </div>
+          <p class="pkg-note">Snapper, salmon and shrimp — Jamaican-style, every way you love.</p>
+        </div>
+        <div class="pkg-cta"><a href="tel:2046981546">🦐 Book Seafood Feast</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIAL -->
+<div class="memorial-section">
+  <div class="reveal">
+    <div class="section-label" style="justify-content:center;color:rgba(201,168,76,.8);">With Compassion</div>
+    <h2 class="section-title">Funeral &<em>Memorial Catering</em></h2>
+    <p class="memorial-desc">In times of remembrance, let us take care of the food so you can be with family. Miss Christine's Kitchen offers warm, comforting Jamaican meals for repasts, celebrations of life, and memorial gatherings — served with the love and respect your loved one deserves.</p>
+    <div class="memorial-actions">
+      <a href="tel:2046981546" class="btn-primary">📞 Plan a Repast — (204) 698-1546</a>
+    </div>
+  </div>
+</div>
+
+<!-- ADD-ONS -->
+<section id="addons" style="background:var(--warm-white);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal">
+      <div class="section-label">Optional Add-Ons</div>
+      <h2 class="section-title">Make it<em>extra special.</em></h2>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-card reveal"><div class="addon-emoji">🌺</div><div class="addon-name">MCK Tropical Mocktail</div><div class="addon-serving">Serves 10</div><div class="addon-price">$30</div></div>
+      <div class="addon-card reveal"><div class="addon-emoji">🍍</div><div class="addon-name">Pineapple Ginger Drink</div><div class="addon-serving">Serves 10</div><div class="addon-price">$35</div></div>
+      <div class="addon-card reveal"><div class="addon-emoji">🌸</div><div class="addon-name">Sorrel Drink</div><div class="addon-serving">Serves 10</div><div class="addon-price">$40</div></div>
+      <div class="addon-card reveal"><div class="addon-emoji">🍗</div><div class="addon-name">Jerk Chicken Skewers</div><div class="addon-serving">Platter</div><div class="addon-price">$60</div></div>
+      <div class="addon-card reveal"><div class="addon-emoji">🧄🍤</div><div class="addon-name">Garlic Butter Shrimp</div><div class="addon-serving">Platter</div><div class="addon-price">$80</div></div>
+      <div class="addon-card reveal"><div class="addon-emoji">🌶️🍤</div><div class="addon-name">Sweet Chili Shrimp</div><div class="addon-serving">Platter</div><div class="addon-price">$80</div></div>
+      <div class="addon-card reveal"><div class="addon-emoji">🔥🍤</div><div class="addon-name">Grilled Shrimp</div><div class="addon-serving">Platter</div><div class="addon-price">$80</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE OPTIONS -->
+<div class="service-strip">
+  <div class="service-option"><span class="service-icon">🚶</span><div class="service-name">Pickup</div><div class="service-detail">Always Free</div></div>
+  <div class="service-option"><span class="service-icon">🚗</span><div class="service-name">Delivery</div><div class="service-detail">From $50 (distance based)</div></div>
+  <div class="service-option"><span class="service-icon">🍽️</span><div class="service-name">Staffed Service</div><div class="service-detail">Available upon request</div></div>
+</div>
+
+<!-- BOOKING CTA -->
+<div class="booking-section">
+  <div class="booking-card reveal">
+    <h3>Ready to plan your event?</h3>
+    <p>Tell us your date, guest count and any dietary needs. Miss Christine will customize a menu and confirm your booking with a 50% deposit. Events booked at least 1 week in advance.</p>
+    <div class="booking-actions">
+      <a href="tel:2046981546" class="btn-primary">📞 Call (204) 698-1546</a>
+      <a href="mailto:misschristineskitchen@gmail.com" class="btn-secondary">✉️ Email Us</a>
+    </div>
+    <p style="font-size:.75rem;color:rgba(247,242,232,.35);margin-top:1.5rem;">Thank you for choosing Miss Christine's Kitchen — we look forward to serving you. 🇯🇲</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-text">Miss Christine's <span>Kitchen</span></span>
+        <p class="footer-tagline">Award-winning authentic Jamaican & International Street Food in Winnipeg. Catering for all occasions — big or small.</p>
+        <p style="font-size:.8rem;color:rgba(247,242,232,.4);margin-bottom:.75rem;"><a href="mailto:misschristineskitchen@gmail.com" style="color:rgba(247,242,232,.4);text-decoration:none;">misschristineskitchen@gmail.com</a></p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/p/Miss-Christines-kitchen-100063468461221/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/miss_christines_kitchen_inc?igsh=MXI2YjZ2YTd2eXcwbg==" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="tel:2046981546" class="social-btn" aria-label="Phone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Catering</h4>
+        <ul>
+          <li><a href="#policy">How It Works</a></li>
+          <li><a href="#packages">Basic Package</a></li>
+          <li><a href="#packages">Island Treat</a></li>
+          <li><a href="#packages">Seafood Feast</a></li>
+          <li><a href="#addons">Add-Ons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <ul>
+          <li><a href="index.html#contact">Hours of Operation</a></li>
+          <li><a href="https://maps.google.com/?q=878+Ellice+Ave+Winnipeg+MB" target="_blank" rel="noopener">878 Ellice Ave, Winnipeg</a></li>
+          <li><a href="tel:2046981546">(204) 698-1546</a></li>
+          <li><a href="index.html#about">My Story</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="index.html">Order Online</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="https://www.google.com/maps/search/miss+christine%27s+kitchen+winnipeg" target="_blank" rel="noopener">4.9★ on Google</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Miss Christine's Kitchen · 878 Ellice Ave, Winnipeg MB · (204) 698-1546</span>
+      <span>Da place to be for people with good taste! ♥</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
