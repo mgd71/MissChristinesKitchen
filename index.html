@@ -1158,10 +1158,13 @@
   .drawer-head-sub { font-size:.75rem;color:rgba(247,242,232,.55);margin-top:2px; }
   .drawer-close { background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.3);color:var(--cream);width:36px;height:36px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s; }
   .drawer-close:hover { background:rgba(201,168,76,.2); }
+  .drawer-tabs-wrap { position:relative; flex-shrink:0; }
   .drawer-tabs { display:flex;overflow-x:auto;flex-shrink:0;background:#f0ece4;border-bottom:2px solid #ddd;scrollbar-width:none; }
   .drawer-tabs::-webkit-scrollbar { display:none; }
-  .drawer-tab { flex-shrink:0;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;padding:.85rem 1.2rem;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;white-space:nowrap; }
-  .drawer-tab.active { color:var(--forest);border-bottom-color:var(--gold); }
+  .drawer-tab { flex-shrink:0;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;padding:.85rem 1rem;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s,background .2s;white-space:nowrap; }
+  .drawer-tab:hover { background:rgba(201,168,76,.07); color:var(--charcoal); }
+  .drawer-tab.active { color:var(--forest);border-bottom-color:var(--gold);background:rgba(201,168,76,.05); }
+  .drawer-scroll-hint { position:absolute;right:0;top:0;bottom:2px;width:40px;background:linear-gradient(to right,transparent,#f0ece4);pointer-events:none;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:.75rem;color:#bbb; }
   .drawer-body { flex:1;overflow-y:auto;padding:1.5rem; }
   .drawer-section { display:none; }
   .drawer-section.active { display:block; }
@@ -1392,6 +1395,9 @@
 </section>
 
 <!-- ANNOUNCE BAR -->
+<div style="background:var(--gold);padding:.95rem 5%;text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--forest);font-weight:600;letter-spacing:.03em;margin:0;">"Miss Christine's Kitchen — <strong style="font-style:normal;">the place to be for people with good taste.</strong>"</p>
+</div>
 <div class="announce-bar">
   📍 <span>878 Ellice Ave, Winnipeg</span> · Open Daily 5 PM – 10 PM · <span>Call to Pre-Order — 30 Min Notice: (204) 698-1546</span>
 </div>
@@ -1562,12 +1568,23 @@
 
         <!-- VEGAN -->
         <div class="order-cat" id="oc-vegan">
-          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);margin-bottom:.3rem;">Vegan / Vegetarian</div>
-          <div style="font-size:.8rem;color:#888;margin-bottom:1.2rem;">Plant-based Jamaican flavour — no compromise on taste</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);margin-bottom:.3rem;">Vegan & Vegetarian</div>
+          <div style="font-size:.8rem;color:#888;margin-bottom:1rem;">All meals $33.99 · BIG portions · Enough for leftovers or sharing!</div>
+          <div style="background:var(--forest);color:var(--cream);font-size:.75rem;font-weight:700;padding:.7rem 1rem;border-radius:3px;margin-bottom:1rem;line-height:1.7;">🌱 Served with: Rice & Peas or White Rice · Coconut Coleslaw · Sautéed Cabbage · Fried Plantains · 3 Bean Salad<br><span style="color:var(--gold-light);">BIG portions — enough for leftovers or sharing!</span></div>
           <div class="menu-items">
-            <div class="menu-item"><div class="item-emoji">🌿</div><div class="item-info"><div class="item-name">Jerk Tofu</div><div class="item-desc">Jamaican jerk-seasoned tofu — serves with rice n peas, coleslaw, fry plantain.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Jerk Tofu',33.99)">+</button></div></div>
-            <div class="menu-item"><div class="item-emoji">🥦</div><div class="item-info"><div class="item-name">Curry Veggie Chunks</div><div class="item-desc">Hearty veggie chunks with potatoes, carrots, herbs and spice over white rice or rice n peas.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Veggie Chunks',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🌿🍗</div><div class="item-info"><div class="item-name">Jerk Tofu</div><div class="item-desc">Jamaican jerk-seasoned tofu with all the vegan sides.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Jerk Tofu',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🍯🌿</div><div class="item-info"><div class="item-name">Honey Jerk Tofu</div><div class="item-desc">Sweet honey glaze meets jerk heat on crispy tofu.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Honey Jerk Tofu',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🍛🌿</div><div class="item-info"><div class="item-name">Curry Tofu</div><div class="item-desc">Rich Jamaican curry sauce with tender tofu.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Tofu',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🍄</div><div class="item-info"><div class="item-name">Jerk Mushroom</div><div class="item-desc">Bold jerk-seasoned mushrooms — meaty, smoky and satisfying.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Jerk Mushroom',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🍯🍄</div><div class="item-info"><div class="item-name">Honey Jerk Mushroom</div><div class="item-desc">Sweet honey glaze meets jerk heat on hearty mushrooms.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Honey Jerk Mushroom',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🫘</div><div class="item-info"><div class="item-name">Jamaican Stew Peas with Veggie Chunks</div><div class="item-desc">Classic Jamaican stew peas slow-cooked with hearty veggie chunks.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Jamaican Stew Peas with Veggie Chunks',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🍛🫘</div><div class="item-info"><div class="item-name">Curry Chickpeas with Potatoes & Carrots</div><div class="item-desc">Hearty curry chickpeas with tender potatoes and carrots.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Chickpeas with Potatoes & Carrots',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🥦🍛</div><div class="item-info"><div class="item-name">Curry Veggie Chunks with Potatoes & Carrots</div><div class="item-desc">Flavourful curry veggie chunks slow-cooked with potatoes and carrots.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span><span class="item-tag popular">⭐ Fan Fave</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Veggie Chunks with Potatoes & Carrots',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🌶️🥦</div><div class="item-info"><div class="item-name">Sweet & Spicy Veggie Chunks</div><div class="item-desc">Veggie chunks tossed in a bold sweet and spicy Jamaican sauce.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Sweet & Spicy Veggie Chunks',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🌈🥦</div><div class="item-info"><div class="item-name">Veggie Delight</div><div class="item-desc">A celebration of fresh vegetables, Jamaican-style seasoned and cooked to perfection.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Veggie Delight',33.99)">+</button></div></div>
+            <div class="menu-item"><div class="item-emoji">🥬</div><div class="item-info"><div class="item-name">Callaloo Meal</div><div class="item-desc">Jamaica's beloved leafy green, seasoned and cooked the authentic way.</div><div class="item-tags"><span class="item-tag veg">🌱 Vegan</span></div></div><div class="item-right"><div class="item-price">$33.99</div><button class="add-btn" onclick="addToCart('Callaloo Meal',33.99)">+</button></div></div>
           </div>
+          <div style="background:var(--cream);border-radius:3px;padding:.8rem 1rem;margin-top:1rem;font-size:.78rem;color:var(--forest);font-weight:600;text-align:center;border-top:2px solid var(--gold);">🌱 Big Belly Portions · Come Hungry · Always Guaranteed to Leave You Full & Satisfied!</div>
         </div>
         <!-- REFRESHERS -->
         <div class="order-cat" id="oc-refreshers">
@@ -1801,7 +1818,7 @@
             <div class="contact-icon">🍽</div>
             <div class="contact-text">
               <div class="contact-label">Service Options</div>
-              <div class="contact-value">Dine-in · Pickup · Online Order<br>Vegan Options · Wi-Fi Available</div>
+              <div class="contact-value">Pickup · Online Order · Vegan Options<br>Wi-Fi Available</div>
             </div>
           </div>
 
@@ -1991,12 +2008,16 @@
     </div>
     <button class="drawer-close" onclick="closeMenuDrawer()">✕</button>
   </div>
-  <div class="drawer-tabs">
+  <div class="drawer-tabs-wrap">
+  <div class="drawer-tabs" id="drawer-tabs-scroll">
     <button class="drawer-tab active" onclick="switchDrawerTab('d-family',this)">Family Packages</button>
     <button class="drawer-tab" onclick="switchDrawerTab('d-singles',this)">Single Meals</button>
     <button class="drawer-tab" onclick="switchDrawerTab('d-mix',this)">Mix Plates</button>
+    <button class="drawer-tab" onclick="switchDrawerTab('d-vegan',this)">🌱 Vegan / Veggie</button>
     <button class="drawer-tab" onclick="switchDrawerTab('d-refreshers',this)">MCK Refreshers</button>
     <button class="drawer-tab" onclick="switchDrawerTab('d-cocktails',this)">Cocktails</button>
+  </div>
+  <div class="drawer-scroll-hint">›</div>
   </div>
   <div class="drawer-body">
 
@@ -2043,10 +2064,23 @@
     </div>
 
     <div class="drawer-section" id="d-vegan">
-      <div class="drawer-section-title">Vegan / Vegetarian</div>
-      <div class="drawer-section-sub">Plant-based Jamaican flavour — no compromise on taste</div>
-      <div class="menu-row"><div class="row-emoji">🌿</div><div class="row-info"><div class="row-name">Jerk Tofu</div><div class="row-desc">Jamaican jerk-seasoned tofu — bold flavour, fully plant-based.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Jerk Tofu',33.99)">+</button></div></div>
-      <div class="menu-row"><div class="row-emoji">🥦</div><div class="row-info"><div class="row-name">Curry Veggie Chunks</div><div class="row-desc">Hearty veggie chunks in rich Jamaican curry sauce.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Veggie Chunks',33.99)">+</button></div></div>
+      <div class="drawer-section-title">Vegan & Vegetarian</div>
+      <div class="drawer-section-sub">All meals $33.99 · BIG portions · Enough for leftovers or sharing!</div>
+      <div class="includes-badge">🌱 All meals served with: Rice & Peas or White Rice · Coconut Coleslaw · Sautéed Cabbage · Fried Plantains · 3 Bean Salad</div>
+      <div class="menu-row"><div class="row-emoji">🌿🍗</div><div class="row-info"><div class="row-name">Jerk Tofu</div><div class="row-desc">Jamaican jerk-seasoned tofu with all the vegan sides.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Jerk Tofu',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🍯🌿</div><div class="row-info"><div class="row-name">Honey Jerk Tofu</div><div class="row-desc">Sweet honey glaze meets jerk heat on crispy tofu.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Honey Jerk Tofu',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🍛🌿</div><div class="row-info"><div class="row-name">Curry Tofu</div><div class="row-desc">Rich Jamaican curry sauce with tender tofu.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Tofu',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🍄</div><div class="row-info"><div class="row-name">Jerk Mushroom</div><div class="row-desc">Bold jerk-seasoned mushrooms — meaty, smoky and satisfying.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Jerk Mushroom',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🍯🍄</div><div class="row-info"><div class="row-name">Honey Jerk Mushroom</div><div class="row-desc">Sweet honey glaze meets jerk heat on hearty mushrooms.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Honey Jerk Mushroom',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🫘</div><div class="row-info"><div class="row-name">Jamaican Stew Peas with Veggie Chunks</div><div class="row-desc">Classic Jamaican stew peas slow-cooked with hearty veggie chunks.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Jamaican Stew Peas with Veggie Chunks',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🍛🫘</div><div class="row-info"><div class="row-name">Curry Chickpeas with Potatoes & Carrots</div><div class="row-desc">Hearty curry chickpeas with tender potatoes and carrots.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Chickpeas with Potatoes & Carrots',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🥦🍛</div><div class="row-info"><div class="row-name">Curry Veggie Chunks with Potatoes & Carrots</div><div class="row-desc">Flavourful curry veggie chunks slow-cooked with potatoes and carrots.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span><span class="row-tag hot">⭐ Fan Fave</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Curry Veggie Chunks with Potatoes & Carrots',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🌶️🥦</div><div class="row-info"><div class="row-name">Sweet & Spicy Veggie Chunks</div><div class="row-desc">Veggie chunks tossed in a bold sweet and spicy Jamaican sauce.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Sweet & Spicy Veggie Chunks',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🌈🥦</div><div class="row-info"><div class="row-name">Veggie Delight</div><div class="row-desc">A celebration of fresh vegetables, Jamaican-style seasoned and cooked to perfection.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Veggie Delight',33.99)">+</button></div></div>
+      <div class="menu-row"><div class="row-emoji">🥬</div><div class="row-info"><div class="row-name">Callaloo Meal</div><div class="row-desc">Jamaica's beloved leafy green, seasoned and cooked the authentic way.</div><div class="row-tags"><span class="row-tag" style="background:rgba(26,46,26,.1);color:var(--forest);">🌱 Vegan</span></div></div><div class="row-right"><div class="row-price">$33.99</div><button class="add-btn" onclick="addToCart('Callaloo Meal',33.99)">+</button></div></div>
+      <div style="background:rgba(201,168,76,.08);border-radius:3px;padding:.7rem 1rem;margin-top:1rem;font-size:.75rem;color:var(--cream);font-weight:600;text-align:center;border-top:1px solid rgba(201,168,76,.2);">
+        🌱 Big Belly Portions · Come Hungry · Always Guaranteed to Leave You Full & Satisfied!
+      </div>
     </div>
 
     <div class="drawer-section" id="d-refreshers">
@@ -2292,12 +2326,21 @@
     document.querySelectorAll('.drawer-tab').forEach(el => el.classList.remove('active'));
     const sec = document.getElementById(id);
     if (sec) sec.classList.add('active');
-    if (btn) { btn.classList.add('active'); }
-    else {
-      const map = {'d-family':0,'d-singles':1,'d-mix':2,'d-vegan':3,'d-refreshers':4,'d-cocktails':5};
+    const map = {'d-family':0,'d-singles':1,'d-mix':2,'d-vegan':3,'d-refreshers':4,'d-cocktails':5};
+    if (btn) {
+      btn.classList.add('active');
+      // Scroll the tab into view
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    } else {
       const tabs = document.querySelectorAll('.drawer-tab');
-      if (map[id] !== undefined && tabs[map[id]]) tabs[map[id]].classList.add('active');
+      if (map[id] !== undefined && tabs[map[id]]) {
+        tabs[map[id]].classList.add('active');
+        tabs[map[id]].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
     }
+    // Hide scroll hint if on last 2 tabs
+    const hint = document.querySelector('.drawer-scroll-hint');
+    if (hint) hint.style.display = (map[id] >= 4) ? 'none' : 'flex';
   }
 
   // ── TOAST ──
