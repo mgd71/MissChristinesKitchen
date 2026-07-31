@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jamaican Catering Winnipeg | Miss Christine's Kitchen | Weddings, Corporate & Private Events</title>
-<meta name="description" content="Authentic Jamaican catering for weddings, corporate events & private parties in Winnipeg. Jerk chicken, oxtail, curry goat & seafood packages. Min. 10 guests. Call (204) 698-1546.">
+<meta name="description" content="Authentic Jamaican catering for weddings, corporate events & private parties in Winnipeg. Jerk chicken, oxtail, curry goat & seafood — custom menus. Min. 10 guests. Call (204) 698-1546.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:0 5%;background:rgba(0,0
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold);opacity:.6;}
 .catering-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;color:var(--cream);line-height:1.08;margin-bottom:1rem;}
 .catering-hero h1 em{color:var(--gold);font-style:italic;display:block;}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:rgba(247,242,232,.7);font-style:italic;margin-bottom:2.5rem;line-height:1.6;max-width:620px;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.6vw,1.6rem);font-weight:600;color:rgba(247,242,232,.9);font-style:italic;margin-bottom:2.5rem;line-height:1.65;max-width:680px;}
 .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--forest);font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.2rem;text-decoration:none;border-radius:2px;border:none;cursor:pointer;transition:background .2s,transform .15s;}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
@@ -77,33 +77,7 @@ section{padding:5rem 5%;}
 .policy-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:.5rem;}
 .policy-desc{font-size:.88rem;color:#bbb;line-height:1.6;}
 
-/* PACKAGES */
-#packages{background:#0d0d0d;}
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;max-width:1300px;margin-left:auto;margin-right:auto;}
-.package-card{background:#1a1a1a;border:1px solid rgba(255,215,0,0.15);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;position:relative;}
-.package-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.4);transform:translateY(-3px);}
-.package-card.featured{border:2px solid var(--gold);box-shadow:0 8px 32px rgba(255,215,0,.15);}
-.package-badge{position:absolute;top:1rem;right:1rem;background:var(--gold);color:var(--forest);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px;}
-.package-head{background:var(--forest);padding:2rem 1.8rem 1.5rem;}
-.package-label{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,215,0,.7);margin-bottom:.4rem;}
-.package-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:.75rem;}
-.package-price{display:flex;align-items:baseline;gap:4px;}
-.price-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--gold);line-height:1;}
-.price-unit{font-size:.78rem;color:rgba(247,242,232,.55);font-weight:400;}
-.package-body{padding:1.5rem 1.8rem;flex:1;display:flex;flex-direction:column;gap:1.2rem;}
-.pkg-section-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--spice);margin-bottom:.5rem;}
-.pkg-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
-.pkg-list li{font-size:.88rem;color:var(--charcoal);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4;}
-.pkg-list li::before{content:'✓';color:var(--gold);font-weight:700;font-size:.8rem;flex-shrink:0;margin-top:1px;}
-.pkg-note{font-size:.78rem;color:#999;font-style:italic;line-height:1.5;padding-top:.5rem;border-top:1px solid rgba(255,255,255,.08);}
-.pkg-cta{margin:0 1.8rem 1.8rem;}
-.pkg-cta a,.pkg-cta button{display:block;width:100%;text-align:center;background:var(--forest);color:var(--gold);font-family:'Lato',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem;border-radius:3px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
-.pkg-cta a:hover,.pkg-cta button:hover{background:var(--spice);}
-.package-card.featured .pkg-cta a,.package-card.featured .pkg-cta button{background:var(--gold);color:var(--forest);}
-.package-card.featured .pkg-cta a:hover,.package-card.featured .pkg-cta button:hover{background:var(--gold-light);}
 
-/* ALSO — tray option banner inside basic package */
-.tray-banner{background:var(--cream);border-radius:3px;padding:.6rem 1rem;font-size:.8rem;color:var(--forest);font-weight:700;border-left:3px solid var(--gold);margin-bottom:.5rem;}
 
 /* ADDONS */
 .addons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2.5rem;max-width:1200px;margin-left:auto;margin-right:auto;}
@@ -160,8 +134,8 @@ footer{background:#0a0704;padding:4rem 5% 2rem;color:rgba(247,242,232,.5);}
 .toast{position:fixed;bottom:2rem;right:2rem;background:var(--forest);color:var(--cream);padding:.75rem 1.2rem;border-radius:4px;border-left:3px solid var(--gold);font-size:.88rem;font-weight:600;z-index:9999;transform:translateY(100px);opacity:0;transition:transform .3s,opacity .3s;max-width:280px;}
 .toast.show{transform:translateY(0);opacity:1;}
 
-@media(max-width:1024px){.packages-grid{grid-template-columns:1fr 1fr;}.policy-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:768px){.packages-grid{grid-template-columns:1fr;}.policy-grid{grid-template-columns:1fr;}.service-strip{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;gap:2rem;}.hero-badges{gap:2rem;}.nav-links{display:none;}.hamburger{display:flex;}}
+@media(max-width:1024px){.policy-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.policy-grid{grid-template-columns:1fr;}.service-strip{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;gap:2rem;}.hero-badges{gap:2rem;}.nav-links{display:none;}.hamburger{display:flex;}}
 @media(max-width:500px){.addons-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
@@ -190,11 +164,10 @@ footer{background:#0a0704;padding:4rem 5% 2rem;color:rgba(247,242,232,.5);}
   <p class="hero-sub">From intimate dinners to grand celebrations, Miss Christine's Kitchen brings authentic Jamaican flavour to every event — weddings, corporate gatherings, birthdays, private parties and repasts.</p>
   <div class="hero-actions">
     <a href="tel:2046981546" class="btn-primary">📞 Call to Book — (204) 698-1546</a>
-    <button class="btn-secondary" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">View Packages →</button>
+    <button class="btn-secondary" onclick="document.getElementById('addons').scrollIntoView({behavior:'smooth'})">See Add-Ons →</button>
   </div>
   <div class="hero-badges">
     <div class="hero-badge"><span class="badge-num">10+</span><span class="badge-label">Min. Guests</span></div>
-    <div class="hero-badge"><span class="badge-num">3</span><span class="badge-label">Package Tiers</span></div>
     <div class="hero-badge"><span class="badge-num">50%</span><span class="badge-label">Deposit to Book</span></div>
     <div class="hero-badge"><span class="badge-num">4.9★</span><span class="badge-label">Google Rating</span></div>
   </div>
@@ -220,147 +193,6 @@ footer{background:#0a0704;padding:4rem 5% 2rem;color:rgba(247,242,232,.5);}
     </div>
   </div>
 </section>
-
-<!-- PACKAGES -->
-<section id="packages">
-  <div style="max-width:1300px;margin:0 auto;">
-    <div class="reveal" style="text-align:center;margin-bottom:.5rem;">
-      <div class="section-label" style="justify-content:center;">Catering Packages</div>
-      <h2 class="section-title" style="text-align:center;">Three ways<em>to feast.</em></h2>
-      <p style="color:#999;font-size:.9rem;margin-top:.5rem;">Minimum 10 guests on every package. All prices in CAD — taxes (PST & GST) not included.</p>
-    </div>
-
-    <div class="packages-grid">
-
-      <!-- BASIC -->
-      <div class="package-card reveal">
-        <div class="package-head">
-          <div class="package-label">Basic Package</div>
-          <div class="package-name">Pick One Protein</div>
-          <div class="package-price"><span class="price-num">$100</span><span class="price-unit">/ tray of 10 (protein only)</span></div>
-          <div style="margin-top:.5rem;font-size:.78rem;color:rgba(247,242,232,.55);">or <strong style="color:var(--gold);">$18.99</strong> per person — meal with 3 sides</div>
-        </div>
-        <div class="package-body">
-          <div>
-            <div class="pkg-section-title">Pick 1 Protein</div>
-            <ul class="pkg-list">
-              <li>Jerk Chicken</li>
-              <li>Fry Chicken</li>
-              <li>Curry Chicken</li>
-              <li>Brown Stew Chicken</li>
-            </ul>
-          </div>
-          <div>
-            <div class="pkg-section-title">Pick 3 Sides</div>
-            <ul class="pkg-list">
-              <li>Rice & Peas</li>
-              <li>White Rice</li>
-              <li>Pasta Salad</li>
-              <li>Fry Plantain</li>
-              <li>Fresh Salad</li>
-              <li>Baked Potato</li>
-              <li>Rasta Pasta</li>
-              <li>Steam Cabbage</li>
-              <li>Creamy Mac & Cheese</li>
-              <li>Callaloo</li>
-            </ul>
-          </div>
-          <p class="pkg-note">All chicken meals are the same price. Medium tray feeds 10 guests.</p>
-        </div>
-        <div class="pkg-cta"><a href="tel:2046981546">📞 Book This Package</a></div>
-      </div>
-
-      <!-- ISLAND TREAT — FEATURED -->
-      <div class="package-card featured reveal">
-        <div class="package-badge">⭐ Most Loved</div>
-        <div class="package-head">
-          <div class="package-label">Island Treat</div>
-          <div class="package-name">The Premium Trio</div>
-          <div class="package-price"><span class="price-num">$69.99</span><span class="price-unit">/ per person</span></div>
-          <div style="margin-top:.5rem;font-size:.78rem;color:rgba(247,242,232,.55);">Pre-fixed meal · Minimum 10 guests</div>
-        </div>
-        <div class="package-body">
-          <div>
-            <div class="pkg-section-title">3 Premium Proteins (included)</div>
-            <ul class="pkg-list">
-              <li>Jerk Chicken</li>
-              <li>Slow Braised Oxtail</li>
-              <li>Curry Goat</li>
-            </ul>
-          </div>
-          <div>
-            <div class="pkg-section-title">Pick 4 Sides</div>
-            <ul class="pkg-list">
-              <li>Rice & Peas</li>
-              <li>White Rice</li>
-              <li>Steam Cabbage</li>
-              <li>Baked Potatoes</li>
-              <li>Rasta Pasta</li>
-              <li>Roasted Vegetables</li>
-              <li>Island Brussels Sprouts</li>
-              <li>Fry Plantains</li>
-              <li>Pasta Salad</li>
-              <li>MCK Jerk Mac & Cheese</li>
-              <li>Callaloo</li>
-            </ul>
-          </div>
-          <p class="pkg-note">The full Miss Christine's experience — jerk, oxtail & curry goat together.</p>
-        </div>
-        <div class="pkg-cta"><button onclick="showToast('Call (204) 698-1546 to book the Island Treat package!')">⭐ Book Island Treat</button></div>
-      </div>
-
-      <!-- SEAFOOD FEAST -->
-      <div class="package-card reveal">
-        <div class="package-head">
-          <div class="package-label">Island Seafood Feast</div>
-          <div class="package-name">Catch of the Caribbean</div>
-          <div class="package-price"><span class="price-num">$74.99</span><span class="price-unit">/ per person</span></div>
-          <div style="margin-top:.5rem;font-size:.78rem;color:rgba(247,242,232,.55);">Minimum 10 guests</div>
-        </div>
-        <div class="package-body">
-          <div>
-            <div class="pkg-section-title">Pick 3 Signature Proteins</div>
-            <ul class="pkg-list">
-              <li>Escovitch Snapper</li>
-              <li>Brown Stew Snapper</li>
-              <li>Jerk Snapper</li>
-              <li>Honey Jerk Salmon</li>
-              <li>Steam Snapper</li>
-              <li>Curry Snapper</li>
-              <li>Curry Shrimp</li>
-              <li>Escovitch Shrimp</li>
-              <li>Garlic Butter Shrimp</li>
-              <li>Jerk Shrimp</li>
-              <li>Nigerian Suya Shrimp</li>
-              <li>Deep Fry Breaded Shrimp</li>
-            </ul>
-          </div>
-          <div>
-            <div class="pkg-section-title">Pick 4 Sides</div>
-            <ul class="pkg-list">
-              <li>Reggae Pasta</li>
-              <li>Baked Potato</li>
-              <li>Rice & Peas</li>
-              <li>Fettuccine Alfredo</li>
-              <li>Mac & Cheese</li>
-              <li>Caesar Salad</li>
-              <li>Garden Salad</li>
-              <li>Callaloo</li>
-              <li>Fry Plantain</li>
-              <li>Steam Cabbage</li>
-              <li>Roasted Vegetables</li>
-              <li>Island Brussels Sprouts</li>
-            </ul>
-          </div>
-          <p class="pkg-note">Snapper, salmon and shrimp — Jamaican-style, every way you love.</p>
-        </div>
-        <div class="pkg-cta"><a href="tel:2046981546">🦐 Book Seafood Feast</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- MEMORIAL -->
 <div class="memorial-section">
   <div class="reveal">
@@ -436,9 +268,6 @@ footer{background:#0a0704;padding:4rem 5% 2rem;color:rgba(247,242,232,.5);}
         <h4>Catering</h4>
         <ul>
           <li><a href="#policy">How It Works</a></li>
-          <li><a href="#packages">Basic Package</a></li>
-          <li><a href="#packages">Island Treat</a></li>
-          <li><a href="#packages">Seafood Feast</a></li>
           <li><a href="#addons">Add-Ons</a></li>
         </ul>
       </div>
