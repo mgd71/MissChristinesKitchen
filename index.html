@@ -2363,19 +2363,82 @@
     document.getElementById('modal-total').textContent = '$' + total.toFixed(2);
   }
 
+  var WEB3FORMS_ACCESS_KEY = "b131c480-d34f-4728-b52a-cdd2027938bb";
+
   function submitOrder() {
     const first = document.getElementById('f-first').value.trim();
+    const last = document.getElementById('f-last') ? document.getElementById('f-last').value.trim() : '';
     const phone = document.getElementById('f-phone').value.trim();
+    const email = document.getElementById('f-email') ? document.getElementById('f-email').value.trim() : '';
+    const time = document.getElementById('f-time') ? document.getElementById('f-time').value : '';
+    const payment = document.getElementById('f-payment') ? document.getElementById('f-payment').value : '';
+    const notes = document.getElementById('f-notes') ? document.getElementById('f-notes').value.trim() : '';
+
     if (!first || !phone) {
       showToast('Please fill in your name and phone number.');
       return;
     }
+    if (cart.length === 0) {
+      showToast('Your cart is empty — add an item first.');
+      return;
+    }
 
-    // In production: POST to a backend/email API here
-    document.getElementById('modal-form-view').style.display = 'none';
-    document.getElementById('modal-success').style.display = 'block';
-    cart = [];
-    renderCart();
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const tax = subtotal * 0.12;
+    const total = subtotal + tax;
+
+    const orderLines = cart.map(i => `• ${i.qty}x ${i.name} — $${(i.price * i.qty).toFixed(2)}`).join('\n');
+    const orderSummary =
+`NEW ORDER — Miss Christine's Kitchen
+
+Customer: ${first} ${last}
+Phone: ${phone}
+Email: ${email || 'Not provided'}
+Pickup Time: ${time || 'As soon as possible'}
+Payment Method: ${payment || 'Not specified'}
+
+ITEMS:
+${orderLines}
+
+Subtotal: $${subtotal.toFixed(2)}
+Tax (12%): $${tax.toFixed(2)}
+TOTAL: $${total.toFixed(2)}
+
+Special Requests: ${notes || 'None'}`;
+
+    const submitBtn = document.querySelector('.submit-order-btn');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.textContent = 'Sending order…'; submitBtn.disabled = true; }
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `New Pickup Order — ${first} ${last} — $${total.toFixed(2)}`,
+        from_name: "Miss Christine's Kitchen Website",
+        name: `${first} ${last}`,
+        email: email || 'no-reply@misschristineskitchen.com',
+        phone: phone,
+        message: orderSummary
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (submitBtn) { submitBtn.textContent = originalBtnText; submitBtn.disabled = false; }
+      if (data.success) {
+        document.getElementById('modal-form-view').style.display = 'none';
+        document.getElementById('modal-success').style.display = 'block';
+        cart = [];
+        renderCart();
+      } else {
+        showToast('Order couldn\'t be sent — please call us at (204) 698-1546 to order.');
+      }
+    })
+    .catch(() => {
+      if (submitBtn) { submitBtn.textContent = originalBtnText; submitBtn.disabled = false; }
+      showToast('Order couldn\'t be sent — please call us at (204) 698-1546 to order.');
+    });
   }
 
   // ── MOBILE NAV ──
@@ -2490,19 +2553,51 @@
   });
 </script>
 <script>
-// CMS content loader — pulls editable text from content/site.json (managed via /admin)
+// Dashboard content loader — pulls editable text from Christine's published Google Sheet.
+// Sheet columns: A = key (do not edit) | B = description | C = value (what she edits)
 (function() {
-  fetch('/content/site.json?_=' + Date.now())
-    .then(function(res) { if (!res.ok) throw new Error('no content file'); return res.json(); })
-    .then(function(data) {
-      Object.keys(data).forEach(function(key) {
+  // Replace this with the "Publish to web" CSV link from the Google Sheet (see setup notes).
+  var SHEET_CSV_URL = "PASTE_PUBLISHED_SHEET_CSV_URL_HERE";
+
+  if (!SHEET_CSV_URL || SHEET_CSV_URL.indexOf("PASTE_") === 0) return; // not configured yet — page shows built-in defaults
+
+  function parseCSV(text) {
+    var rows = [], row = [], field = '', inQuotes = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i], next = text[i + 1];
+      if (inQuotes) {
+        if (c === '"' && next === '"') { field += '"'; i++; }
+        else if (c === '"') { inQuotes = false; }
+        else { field += c; }
+      } else {
+        if (c === '"') { inQuotes = true; }
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+        else if (c === '\r') { /* skip */ }
+        else { field += c; }
+      }
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  fetch(SHEET_CSV_URL + (SHEET_CSV_URL.indexOf('?') > -1 ? '&' : '?') + '_=' + Date.now())
+    .then(function(res) { if (!res.ok) throw new Error('sheet fetch failed'); return res.text(); })
+    .then(function(csvText) {
+      var rows = parseCSV(csvText);
+      rows.slice(1).forEach(function(row) { // skip header row
+        var key = (row[0] || '').trim();
+        var value = row[2];
+        if (!key || value === undefined) return;
         document.querySelectorAll('[data-cms="' + key + '"]').forEach(function(el) {
-          el.innerHTML = data[key];
+          el.innerHTML = value;
         });
       });
     })
-    .catch(function() { /* content/site.json not found yet — page shows built-in defaults */ });
+    .catch(function() { /* sheet unreachable — page shows built-in defaults */ });
 })();
 </script>
+
+
 </body>
 </html>
