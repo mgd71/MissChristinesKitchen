@@ -177,6 +177,18 @@
     padding: 100px 5% 60px;
   }
 
+
+  .hero-flag-bg {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCI+Cjxwb2x5Z29uIHBvaW50cz0iMCwwIDEwMDAsMCA1MDAsMjUwIiBmaWxsPSIjMDA5QjNBIi8+Cjxwb2x5Z29uIHBvaW50cz0iMCw1MDAgMTAwMCw1MDAgNTAwLDI1MCIgZmlsbD0iIzAwOUIzQSIvPgo8cG9seWdvbiBwb2ludHM9IjAsMCAwLDUwMCA1MDAsMjUwIiBmaWxsPSIjMDAwMDAwIi8+Cjxwb2x5Z29uIHBvaW50cz0iMTAwMCwwIDEwMDAsNTAwIDUwMCwyNTAiIGZpbGw9IiMwMDAwMDAiLz4KPGxpbmUgeDE9IjAiIHkxPSIwIiB4Mj0iMTAwMCIgeTI9IjUwMCIgc3Ryb2tlPSIjRkVEMTAwIiBzdHJva2Utd2lkdGg9IjE0MCIvPgo8bGluZSB4MT0iMTAwMCIgeTE9IjAiIHgyPSIwIiB5Mj0iNTAwIiBzdHJva2U9IiNGRUQxMDAiIHN0cm9rZS13aWR0aD0iMTQwIi8+Cjwvc3ZnPg==");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.32;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
   .hero-bg {
     position: absolute; inset: 0;
     background: 
@@ -1356,6 +1368,7 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
+  <div class="hero-flag-bg"></div>
   <div class="hero-ring ring-1"></div>
   <div class="hero-ring ring-2"></div>
   <div class="hero-ring ring-3"></div>
