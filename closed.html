@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miss Christine's Kitchen — Closed Today</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#0A0A0A; --gold:#FFD700; --gold-light:#FFF176;
+    --cream:#F0F0F0; --spice:#1B5E20; --charcoal:#E8E8E8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    background:var(--forest);
+    color:var(--cream);
+    font-family:'Lato',sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    padding:2rem;
+    text-align:center;
+  }
+  .flag-bg{
+    position:absolute; inset:0;
+    background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCI+Cjxwb2x5Z29uIHBvaW50cz0iMCwwIDEwMDAsMCA1MDAsMjUwIiBmaWxsPSIjMDA5QjNBIi8+Cjxwb2x5Z29uIHBvaW50cz0iMCw1MDAgMTAwMCw1MDAgNTAwLDI1MCIgZmlsbD0iIzAwOUIzQSIvPgo8cG9seWdvbiBwb2ludHM9IjAsMCAwLDUwMCA1MDAsMjUwIiBmaWxsPSIjMDAwMDAwIi8+Cjxwb2x5Z29uIHBvaW50cz0iMTAwMCwwIDEwMDAsNTAwIDUwMCwyNTAiIGZpbGw9IiMwMDAwMDAiLz4KPGxpbmUgeDE9IjAiIHkxPSIwIiB4Mj0iMTAwMCIgeTI9IjUwMCIgc3Ryb2tlPSIjRkVEMTAwIiBzdHJva2Utd2lkdGg9IjE0MCIvPgo8bGluZSB4MT0iMTAwMCIgeTE9IjAiIHgyPSIwIiB5Mj0iNTAwIiBzdHJva2U9IiNGRUQxMDAiIHN0cm9rZS13aWR0aD0iMTQwIi8+Cjwvc3ZnPg==");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    opacity:0.22;
+    mix-blend-mode:overlay;
+    pointer-events:none;
+  }
+  .glow{
+    position:absolute;
+    top:50%; left:50%;
+    width:900px; height:900px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(255,215,0,0.10) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .content{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+  }
+  .eyebrow{
+    font-size:.85rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:1.5rem;
+  }
+  .eyebrow::before, .eyebrow::after{ content:"✦"; margin:0 .6em; }
+  h1{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:clamp(2.4rem, 6.5vw, 4.4rem);
+    line-height:1.15;
+    color:#FFFFFF;
+    margin-bottom:.5rem;
+    text-shadow:0 2px 20px rgba(0,0,0,.6);
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--gold-light);
+    display:block;
+  }
+  .sub{
+    font-family:'Lato',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.15rem, 3vw, 1.6rem);
+    color:#FFFFFF;
+    margin:1.8rem 0 2.4rem;
+    line-height:1.7;
+    text-shadow:0 2px 16px rgba(0,0,0,.6);
+  }
+  .back-badge{
+    display:inline-block;
+    background:var(--gold);
+    color:#111;
+    font-weight:900;
+    font-family:'Playfair Display',serif;
+    font-size:1.05rem;
+    padding:.9rem 2rem;
+    border-radius:3px;
+    letter-spacing:.03em;
+    margin-bottom:2.5rem;
+  }
+  .divider{
+    width:80px;
+    height:1px;
+    background:rgba(255,215,0,.4);
+    margin:0 auto 2.2rem;
+  }
+  .contact{
+    font-size:.95rem;
+    color:rgba(240,240,240,.65);
+    line-height:1.9;
+  }
+  .contact strong{ color:var(--gold-light); font-weight:700; }
+  .contact a{ color:var(--gold-light); text-decoration:none; }
+  .contact a:hover{ text-decoration:underline; }
+  @media (max-width:480px){
+    .glow{width:600px;height:600px;}
+  }
+</style>
+</head>
+<body>
+  <div class="flag-bg"></div>
+  <div class="glow"></div>
+  <div class="content">
+    <div class="eyebrow">Miss Christine's Kitchen</div>
+    <h1>Closed Today<em>For Maintenance</em></h1>
+    <p class="sub">Sorry for any inconvenience this may cause.<br>We'll be back tomorrow!</p>
+    <div class="back-badge">🕐 Back Tomorrow</div>
+    <div class="divider"></div>
+    <p class="contact">
+      Questions or catering requests?<br>
+      <strong>Call or text:</strong> <a href="tel:2046981546">(204) 698-1546</a><br>
+      <strong>Email:</strong> <a href="mailto:misschristineskitchen@gmail.com">misschristineskitchen@gmail.com</a>
+    </p>
+  </div>
+</body>
+</html>
