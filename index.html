@@ -184,7 +184,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.32;
+    opacity: 0.46;
     mix-blend-mode: overlay;
     pointer-events: none;
   }
@@ -1276,6 +1276,22 @@
 </style>
 </head>
 <body>
+<div id="mck-closed-overlay" style="display:none;position:fixed;inset:0;z-index:999999;background:#0A0A0A;overflow:hidden;align-items:center;justify-content:center;padding:2rem;text-align:center;">
+  <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCI+Cjxwb2x5Z29uIHBvaW50cz0iMCwwIDEwMDAsMCA1MDAsMjUwIiBmaWxsPSIjMDA5QjNBIi8+Cjxwb2x5Z29uIHBvaW50cz0iMCw1MDAgMTAwMCw1MDAgNTAwLDI1MCIgZmlsbD0iIzAwOUIzQSIvPgo8cG9seWdvbiBwb2ludHM9IjAsMCAwLDUwMCA1MDAsMjUwIiBmaWxsPSIjMDAwMDAwIi8+Cjxwb2x5Z29uIHBvaW50cz0iMTAwMCwwIDEwMDAsNTAwIDUwMCwyNTAiIGZpbGw9IiMwMDAwMDAiLz4KPGxpbmUgeDE9IjAiIHkxPSIwIiB4Mj0iMTAwMCIgeTI9IjUwMCIgc3Ryb2tlPSIjRkVEMTAwIiBzdHJva2Utd2lkdGg9IjE0MCIvPgo8bGluZSB4MT0iMTAwMCIgeTE9IjAiIHgyPSIwIiB5Mj0iNTAwIiBzdHJva2U9IiNGRUQxMDAiIHN0cm9rZS13aWR0aD0iMTQwIi8+Cjwvc3ZnPg==');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.22;mix-blend-mode:overlay;pointer-events:none;"></div>
+  <div style="position:absolute;top:50%;left:50%;width:900px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(255,215,0,0.10) 0%, transparent 70%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;max-width:720px;font-family:'Lato',sans-serif;">
+    <div style="font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:#FFD700;font-weight:700;margin-bottom:1.5rem;">✦ Miss Christine's Kitchen ✦</div>
+    <h1 style="font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.4rem, 6.5vw, 4.4rem);line-height:1.15;color:#FFFFFF;margin:0 0 .5rem;text-shadow:0 2px 20px rgba(0,0,0,.6);">Closed Today<em style="font-style:italic;color:#FFF176;display:block;">For Maintenance</em></h1>
+    <p style="font-family:'Lato',sans-serif;font-weight:700;font-size:clamp(1.15rem, 3vw, 1.6rem);color:#FFFFFF;margin:1.8rem 0 2.4rem;line-height:1.7;text-shadow:0 2px 16px rgba(0,0,0,.6);">Sorry for any inconvenience this may cause.<br>We'll be back soon!</p>
+    <div style="width:80px;height:1px;background:rgba(255,215,0,.4);margin:0 auto 2.2rem;"></div>
+    <p style="font-size:.95rem;color:rgba(240,240,240,.65);line-height:1.9;margin:0;">
+      Questions or catering requests?<br>
+      <strong style="color:#FFF176;font-weight:700;">Call or text:</strong> <a href="tel:2046981546" style="color:#FFF176;text-decoration:none;">(204) 698-1546</a><br>
+      <strong style="color:#FFF176;font-weight:700;">Email:</strong> <a href="mailto:misschristineskitchen@gmail.com" style="color:#FFF176;text-decoration:none;">misschristineskitchen@gmail.com</a>
+    </p>
+  </div>
+</div>
+
 
 <!-- Schema.org structured data for SEO -->
 <script type="application/ld+json" class="schema-hidden">
@@ -1442,7 +1458,7 @@
 
       <p class="section-body" data-cms="story_p4" style="margin-bottom:1.5rem;">Thanks to incredible community support, Miss Christine's Kitchen has been recognized with Winnipeg Community Votes — Best Caribbean Restaurant 6 years straight, Canadian Choice Awards 4 years straight, and Winnipeg Top Choice Jamaican Restaurant 2025 &amp; 2026. I've also had the honor of showcasing my passion on Wall of Chefs and being featured by major media outlets across Canada.</p>
 
-      <blockquote class="about-quote">"To serve homemade, authentic Jamaican and international street food that brings people together — food that feels like home, no matter where you're from."<br><small style="font-style:normal;font-size:.78rem;color:#999;margin-top:6px;display:block;">— Christine Pattison, Owner &amp; Chef</small></blockquote>
+      <blockquote class="about-quote"><span>"To serve homemade, authentic Jamaican and international street food that brings people together — food that feels like home, no matter where you're from."</span><br><small style="font-style:normal;font-size:.78rem;color:#999;margin-top:6px;display:block;">— Christine Pattison, Owner &amp; Chef</small></blockquote>
     </div>
   </div>
 </section>
@@ -2570,7 +2586,7 @@ Special Requests: ${notes || 'None'}`;
 // Sheet columns: A = key (do not edit) | B = description | C = value (what she edits)
 (function() {
   // Replace this with the "Publish to web" CSV link from the Google Sheet (see setup notes).
-  var SHEET_CSV_URL = "PASTE_PUBLISHED_SHEET_CSV_URL_HERE";
+  var SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuyHYQ9DklbkY1Y9E8ZOWJnw-EktxexRbqZqBv-F9LMV8gzIiuUfinBHi-Misy-MfAfGBu6JoQzrvu/pub?output=csv";
 
   if (!SHEET_CSV_URL || SHEET_CSV_URL.indexOf("PASTE_") === 0) return; // not configured yet — page shows built-in defaults
 
@@ -2602,6 +2618,15 @@ Special Requests: ${notes || 'None'}`;
         var key = (row[0] || '').trim();
         var value = row[2];
         if (!key || value === undefined) return;
+        if (key === 'site_status') {
+          var overlay = document.getElementById('mck-closed-overlay');
+          if (overlay) {
+            var isClosed = (value || '').trim().toLowerCase() === 'closed';
+            overlay.style.display = isClosed ? 'flex' : 'none';
+            document.body.style.overflow = isClosed ? 'hidden' : '';
+          }
+          return;
+        }
         document.querySelectorAll('[data-cms="' + key + '"]').forEach(function(el) {
           el.innerHTML = value;
         });
