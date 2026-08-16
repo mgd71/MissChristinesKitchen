@@ -2081,22 +2081,85 @@
         </div>
 
         <div class="form-group">
+          <label>Pickup Date</label>
+          <select id="f-date"></select>
+        </div>
+
+        <div class="form-group">
           <label>Pickup Time</label>
           <select id="f-time"></select>
         </div>
 
         <script>
         (function() {
+          var dateSelect = document.getElementById('f-date');
           var timeSelect = document.getElementById('f-time');
-          var isSunday = new Date().getDay() === 0;
-          var slots = isSunday
-            ? ['3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM']
-            : ['5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM','8:30 PM','9:00 PM','9:30 PM'];
-          slots.forEach(function(t) {
+          var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+          var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+          function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+          function slotsForDay(dayOfWeek) {
+            return dayOfWeek === 0
+              ? ['3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM']
+              : ['5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM','8:30 PM','9:00 PM','9:30 PM'];
+          }
+
+          function parseTimeToDate(timeStr, baseDate) {
+            var match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/);
+            if (!match) return null;
+            var hour = parseInt(match[1], 10);
+            var min = parseInt(match[2], 10);
+            var ampm = match[3];
+            if (ampm === 'PM' && hour !== 12) hour += 12;
+            if (ampm === 'AM' && hour === 12) hour = 0;
+            var d = new Date(baseDate);
+            d.setHours(hour, min, 0, 0);
+            return d;
+          }
+
+          function populateTimes() {
+            var selectedOpt = dateSelect.options[dateSelect.selectedIndex];
+            var dayOfWeek = parseInt(selectedOpt.getAttribute('data-day'), 10);
+            var isToday = selectedOpt.getAttribute('data-today') === 'true';
+            var slots = slotsForDay(dayOfWeek);
+            var now = new Date();
+            if (isToday) {
+              slots = slots.filter(function(t) {
+                var parsed = parseTimeToDate(t, now);
+                return parsed && parsed.getTime() > now.getTime();
+              });
+            }
+            timeSelect.innerHTML = '';
+            if (slots.length === 0) {
+              var opt = document.createElement('option');
+              opt.textContent = 'No more pickup times today';
+              opt.disabled = true;
+              timeSelect.appendChild(opt);
+              return;
+            }
+            slots.forEach(function(t) {
+              var opt = document.createElement('option');
+              opt.textContent = t;
+              timeSelect.appendChild(opt);
+            });
+          }
+
+          var today = new Date();
+          for (var i = 0; i < 7; i++) {
+            var d = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
+            var prefix = i === 0 ? 'Today — ' : (i === 1 ? 'Tomorrow — ' : '');
+            var label = prefix + dayNames[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + d.getDate();
             var opt = document.createElement('option');
-            opt.textContent = t;
-            timeSelect.appendChild(opt);
-          });
+            opt.value = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+            opt.textContent = label;
+            opt.setAttribute('data-day', d.getDay());
+            opt.setAttribute('data-today', i === 0 ? 'true' : 'false');
+            dateSelect.appendChild(opt);
+          }
+
+          dateSelect.addEventListener('change', populateTimes);
+          populateTimes();
         })();
         </script>
 
@@ -2434,6 +2497,8 @@
     const last = document.getElementById('f-last') ? document.getElementById('f-last').value.trim() : '';
     const phone = document.getElementById('f-phone').value.trim();
     const email = document.getElementById('f-email') ? document.getElementById('f-email').value.trim() : '';
+    const dateSelect = document.getElementById('f-date');
+    const dateLabel = dateSelect && dateSelect.selectedIndex > -1 ? dateSelect.options[dateSelect.selectedIndex].textContent : '';
     const time = document.getElementById('f-time') ? document.getElementById('f-time').value : '';
     const payment = document.getElementById('f-payment') ? document.getElementById('f-payment').value : '';
     const notes = document.getElementById('f-notes') ? document.getElementById('f-notes').value.trim() : '';
@@ -2458,6 +2523,7 @@
 Customer: ${first} ${last}
 Phone: ${phone}
 Email: ${email || 'Not provided'}
+Pickup Date: ${dateLabel || 'Not specified'}
 Pickup Time: ${time || 'As soon as possible'}
 Payment Method: ${payment || 'Not specified'}
 
